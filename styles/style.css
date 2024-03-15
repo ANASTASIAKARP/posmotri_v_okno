@@ -13,9 +13,11 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  align-items: center;
 }
 
 h1,
@@ -35,4 +37,306 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+/*align-items: center;*/ /*выровнила по вертикали */
+/* justify-content: center;*/ /*выровнила по горизонтали*/
+/*align-content: center;*/ /*внутри контента в столбик*/
+/*overflow: auto; если содержимое переполняет блок, контент будет доступен для прокрутки.*/
+.content {
+  display: flex;
+  align-items: self-end;
+  width: 1140px;
+  column-gap: 30px;
+  height: 534px;
+  margin: 133px 30px;
+}
+
+/*форма под больщим видео вся*/
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding-top: 16px;
+}
+
+/*обнуление чекбоксов и полей*/
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/*город и время суток без рамок*/
+.search-form__fieldset {
+  border: none;
+  margin-bottom: 2px;
+}
+
+/*заголовок время суток*/
+.search-form__fieldset-title {
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  line-height: auto;
+  letter-spacing: 0%;
+  padding-bottom: 5px;
+}
+
+/*утро/день/ночь */
+.search-form__label {
+  width: fit-content;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.search-form__label:hover :not(.search-form__textfield) {
+  text-decoration: underline;
+}
+
+/*это ТЕКСТОВОЕ ПОЛЕ город/утро/день/ночь*/
+.search-form__label-text {
+  appearance: none;
+  color: #fff;
+}
+
+/*поле санкт-петербурга*/
+.search-form__textfield {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  min-width: 225px;
+  height: 27px;
+  padding: 0;
+  font-family: inherit;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.search-form__textfield:active {
+  border: none;
+}
+
+/*поле санкт-петербурга*/
+input {
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-left: 0;
+  border-right: 0;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.search-form__pseudo-checkbox {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  border: 1px solid #fff;
+  width: 19px;
+  height: 19px;
+  margin-right: 5px;
+}
+
+.search-form__pseudo-checkbox::before {
+  content: "";
+  display: none;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  margin: auto;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+  display: block;
+}
+
+.search-form__checkbox:active + .search-form__pseudo-checkbox::before {
+  display: block;
+}
+
+.button {
+  background-color: transparent;
+  font-weight: 700;
+  font-size: inherit;
+  text-align: center;
+  color: inherit;
+  border: 1px solid #fff;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/*следует придерживаться определённого порядка в объявлении стилей: :link — :visited — :focus — :hover — :active.*/
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background: #545050;
+  text-decoration: none;
+}
+
+.search-form__submit-button {
+  width: 194px;
+  height: 34px;
+}
+
+/*весь блок под ПОСМОТРИ В ОКНО*/
+.content__list {
+  height: 298px;
+  overflow: auto;
+  position: relative;
+  margin-top: 26px;
+}
+
+/*весь блок справа*/
+.content__details {
+  width: 100%;
+  height: 100%;
+}
+
+/*заголовок посмотри в окно*/
+.title {
+  padding: 0 139px 26px 0;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 94%;
+  text-transform: uppercase;
+  color: #fff;
+  height: 210px;
+  font-family: "Oswald", sans-serif;
+}
+
+/*заголовок ПО*/
+.content__accent {
+  color: #545050;
+}
+
+/*весь блок слева*/
+.result {
+  min-height: 456px;
+}
+
+/*большое видео-контейнер слева*/
+.result__video-container {
+  width: 711px;
+  height: 386px;
+  position: relative;
+}
+
+/*большое видео*/
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/*отступ м/у видео*/
+.content__list-item {
+  padding-bottom: 30px;
+}
+
+/*отступ м/у видео кроме последнего*/
+.content__list-item:not(:last-child) {
+  padding-bottom: 30px;
+}
+
+/*город+маленькая видеокарточка*/
+.content__video-card {
+  display: flex;
+  align-items: flex-start;
+}
+
+/*маленькие видеокарточки*/
+.content__video-card-thumbnail {
+  max-width: 194px;
+  max-height: 103px;
+  height: 100%;
+  width: 100%;
+}
+
+/*выравнивание видеокарточек*/
+.content__video-card-description-container {
+  /* font-family: "Oswald", sans-serif;  */
+  width: 100%;
+  height: 100%;
+}
+
+/*настройка цвета для города и описания*/
+.content__card-link {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin: 2px;
+}
+
+.content__card-link_current {
+  background: #545050;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:active {
+  background: #545050;
+}
+
+/*название города справа*/
+.content__video-card-title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  padding-bottom: 6px;
+}
+
+/*текст под названием города справа*/
+.content__video-card-description {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 90%;
+}
+
+/*кнопка показать еще*/
+.more-button {
+  width: 399px;
+  height: 34px;
+  padding: 0;
+  margin: 2px;
 }
